@@ -1,3 +1,5 @@
+![Travis CI Test status](https://travis-ci.org/capripot/markdown-videos.svg)
+
 ## Markdown Videos
 
 Have you ever wished the markdown image syntax would be able to render more than just images?
