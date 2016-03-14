@@ -11,6 +11,12 @@ describe MarkdownVideos do
 
     describe "with string containing one element" do
 
+      it "should keep string as it is if service is not supported" do
+        rendered_text = MarkdownVideos.render(markdown_string("a title", "http://i.giphy.com/m7Xm0aWwu3LFe.gif"))
+
+        expect(rendered_text).to eq "![a title](http://i.giphy.com/m7Xm0aWwu3LFe.gif)"
+      end
+
       MarkdownVideos::SERVICE_TESTS.each do |service, tests|
         tests.reject { |test| test.keys.include?(:classname) }.each do |test|
           test[:alt_text] ||= "a title"
@@ -27,7 +33,7 @@ describe MarkdownVideos do
 
     describe "with string containing multiple elements" do
 
-      it "should render all HTML" do
+      it "should render them all in HTML" do
         markdown_text = []
         expected_html = []
 
@@ -37,9 +43,9 @@ describe MarkdownVideos do
           expected_html << tests.map { |test| test[:html] }.join("\n")
         end
 
-        rendered_text = MarkdownVideos.render(markdown_text.join("\n"))
+        rendered_text = MarkdownVideos.render("Some surrounding text #{markdown_text.join("\n")}")
 
-        expect(rendered_text).to include expected_html.join("\n")
+        expect(rendered_text).to include "Some surrounding text #{expected_html.join("\n")}"
       end
 
     end

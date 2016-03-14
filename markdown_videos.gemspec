@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.files         = Dir["lib/**/*"]
   gem.test_files    = gem.files.grep(/^spec/)
 
-  gem.required_ruby_version = ">= 2.0"
+  gem.required_ruby_version = ">= 2.1"
   gem.add_dependency "addressable", "~> 2.4"
   gem.add_development_dependency "rubocop", "~> 0.37"
   gem.add_development_dependency "rspec", "~> 3.4"
