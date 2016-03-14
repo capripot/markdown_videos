@@ -55,7 +55,7 @@ MarkdownVideos.render(markdown_text, wrapper: '<p class="flex-video">%s</p>', cl
 
 ### Configure default options
 
-Example: create an initializer file to override options defaults and make it [Bootstrap](http://getbootstrap.com/components/#responsive-embed) friendly.
+Example: create an initializer file to override default options and make the renderer [Bootstrap](http://getbootstrap.com/components/#responsive-embed) friendly.
 
 ```ruby
 MarkdownVideos.configure do |config|
@@ -97,10 +97,12 @@ Can be `http` or `https` protocol
 
 ### Want to add a service?
 
-- Add your service in `lib/markdown_videos/services.rb`
-- Add tests to `lib/sqervice_tests.rb`
+Do above process and also, more specifically:
+
+- Add the service in `lib/markdown_videos/services.rb`
+- Add tests to `lib/service_tests.rb`
 - Name your branch `add_service_name_service` replacing `service_name`
-- Add your service to this `README.md` file
+- Add the service to this `README.md` file
 
 ## Boring legal stuff
 
