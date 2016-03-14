@@ -1,6 +1,7 @@
 # Markdown Videos
 
 [![Travis CI Test status](https://travis-ci.org/capripot/markdown_videos.svg)](https://travis-ci.org/capripot/markdown_videos)
+[![Gem Version](https://badge.fury.io/rb/markdown_videos.svg)](https://badge.fury.io/rb/markdown_videos)
 
 Have you ever wished the [markdown image syntax](https://daringfireball.net/projects/markdown/syntax#img) would be able to render more than just images?
 
