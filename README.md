@@ -44,8 +44,13 @@ You should use it before any [other Markdown renderer](https://github.com/vmg/re
 ### Options
 
 You can add optional parameters to `render`:
-- `:wrapper`: wraps the HTML embed markup with the given string, `%s` must be present. E.g.: `wrapper: '<p class="flex-video">%s</p>'`
-- `:classname`: add a class attribute to HTML embed markup
+- `:wrapper` wraps the HTML embed markup with the given string, `%s` must be present
+- `:classname` add a class attribute to HTML embed markup
+
+Example:
+```ruby
+MarkdownVideos.render(markdown_text, wrapper: '<p class="flex-video">%s</p>', classname: "embed-video")
+```
 
 
 ### Configure default options
