@@ -81,6 +81,44 @@ end
 
 Can be `http` or `https` protocol
 
+## Add your own service
+
+You can make available your own services:
+
+`my_awesome_service.rb`:
+
+```ruby
+module MarkdownVideos::Services
+
+  class MyAwsomeService < ServiceBase
+
+    def self.regexp
+      /(https?:\/\/myaweso.me\/video\/([\w\-]{4,16})\??([\w\-\=]+)?)/
+    end
+
+    def width
+      560
+    end
+
+    def height
+      315
+    end
+
+    def url
+      "https://player.myaweso.me/video/#{id}"
+    end
+
+    def url_parameters
+      [:start]
+    end
+
+  end
+
+end
+```
+
+Look at the `lib/markdown_videos/services/service_base.rb` for more details.
+
 ## TODO
 
 - Add more services
