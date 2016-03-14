@@ -5,18 +5,18 @@
 
 Have you ever wished the [markdown image syntax](https://daringfireball.net/projects/markdown/syntax#img) would be able to render more than just images?
 
-`markdown-videos` helps you with that dream, and renders automatically your markdown image syntax elements to the appropriate embed video service HTML markup.
+`markdown_videos` helps you with that dream, and renders automatically your markdown image syntax elements to the appropriate embed video service HTML markup.
 
 ## Installation
 
 ```
-$ gem install markdown-videos
+$ gem install markdown_videos
 ```
 
 or add it to your `Gemfile`
 
 ``` ruby
-gem "markdown-videos"
+gem "markdown_videos"
 ```
 
 and do
@@ -89,7 +89,7 @@ Can be `http` or `https` protocol
 
 - Fork the project
 - Clone the project locally `git clone ...`
-- Add `upstream` repo `git remote add upstream https://github.com/capripot/markdown-videos.git`
+- Add `upstream` repo `git remote add upstream https://github.com/capripot/markdown_videos.git`
 - Create a new branch from master `git checkout -b my_contribution`
 - Code
 - `git rebase master` on your branch
