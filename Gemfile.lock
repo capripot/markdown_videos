@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    markdown-videos (0.1.0)
+    markdown_videos (0.1.0)
       addressable
 
 GEM
@@ -40,6 +40,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  markdown-videos!
+  markdown_videos!
   rspec
   rubocop

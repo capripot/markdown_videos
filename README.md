@@ -1,6 +1,6 @@
 # Markdown Videos
 
-[![Travis CI Test status](https://travis-ci.org/capripot/markdown-videos.svg)](https://travis-ci.org/capripot/markdown-videos)
+[![Travis CI Test status](https://travis-ci.org/capripot/markdown_videos.svg)](https://travis-ci.org/capripot/markdown_videos)
 
 Have you ever wished the [markdown image syntax](https://daringfireball.net/projects/markdown/syntax#img) would be able to render more than just images?
 
