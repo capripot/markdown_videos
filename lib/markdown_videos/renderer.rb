@@ -7,8 +7,9 @@ module MarkdownVideos
     def initialize(string, options = {})
       @string = string
       @options = {
-        size: nil
-      }
+        wrapper: MarkdownVideos.defaults.wrapper,
+        classname: MarkdownVideos.defaults.classname
+      }.merge(options || {})
     end
 
     def render
@@ -29,7 +30,16 @@ module MarkdownVideos
         url = Addressable::URI.parse(match_data[2])
         url_parameters = url.query_values || {}
 
-        sprintf(values[:markup], title.gsub(/["\\]/, '"' => '\\"', '\\' => '\\\\'), service_url(service, id, url_parameters))
+        html_markup = sprintf(values[:markup],
+                              CGI::escapeHTML(title),
+                              service_url(service, id, url_parameters),
+                              @options[:classname].nil? ? "" : " class=\"#{@options[:classname]}\"")
+
+        if @options[:wrapper].nil?
+          html_markup
+        else
+          sprintf(@options[:wrapper], html_markup)
+        end
       end
     end
 

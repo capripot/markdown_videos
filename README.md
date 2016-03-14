@@ -41,6 +41,27 @@ puts html_rendered.to_s
 
 You should use it before any [other Markdown renderer](https://github.com/vmg/redcarpet).
 
+### Options
+
+You can add optional parameters to `render`:
+- `:wrapper`: wraps the HTML embed markup with the given string, `%s` must be present. E.g.: `wrapper: '<p class="flex-video">%s</p>'`
+- `:classname`: add a class attribute to HTML embed markup
+
+
+### Configure default options
+
+Example: create an initializer file to override options defaults and make it [Bootstrap](http://getbootstrap.com/components/#responsive-embed) friendly.
+
+```ruby
+MarkdownVideos.configure do |config|
+
+  # For bootstrap css framework support by default
+  config.wrapper = '<p class="embed-responsive embed-responsive-16by9">%s</p>'
+  config.classname = 'embed-responsive-item'
+
+end
+```
+
 ## Supported services
 
 - Youtube
@@ -56,7 +77,6 @@ Can be `http` or `https` protocol
 
 ## TODO
 
-- Add wrapper support
 - Add more services
 
 ## Contribute
