@@ -78,13 +78,20 @@ module MarkdownVideos
       #
       # @retun [String] markup to render
       def to_html
-        "<iframe #{iframe_attributes.map { |k, v| render_param(k, v) }.compact.join(" ")}></iframe>"
+        "<iframe #{html_dom_properties}></iframe>"
       end
 
-      # Default set of attributes for default iframe markup
+      # Renders the set of HTML attributes
+      #
+      # @return [String] string of dom properties
+      def html_dom_properties
+        html_attributes.map { |k, v| render_param(k, v) }.compact.join(" ")
+      end
+
+      # Default set of HTML attributes for default iframe element
       #
       # @return [Hash]
-      def iframe_attributes
+      def html_attributes
         {
           title: alt_text,
           src: service_url,
