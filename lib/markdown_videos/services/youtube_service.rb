@@ -3,7 +3,7 @@ module MarkdownVideos::Services
   class YoutubeService < ServiceBase
 
     def self.regexp
-      /(https?:\/\/(?:youtu.be\/|www.youtube.com\/(?:watch\?v=|embed\/))([\w\-]{4,16})\??([\w\-\=]+)?)/
+      /^(https?:\/\/(?:youtu.be\/|www.youtube.com\/(?:watch\?v=|embed\/))([\w\-]{4,16})\??([\w\-\=]+)?)$/
     end
 
     def width

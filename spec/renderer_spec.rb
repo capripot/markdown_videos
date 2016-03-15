@@ -17,6 +17,14 @@ describe MarkdownVideos do
         expect(rendered_text).to eq "![a title](http://i.giphy.com/m7Xm0aWwu3LFe.gif)"
       end
 
+      it "it should strip spaces arround given url" do
+        test = MarkdownVideos::SERVICE_TESTS[:youtube].first
+
+        rendered_text = MarkdownVideos.render(markdown_string(test[:alt_text], " #{test[:url]} "))
+
+        expect(rendered_text).to include test[:html]
+      end
+
       MarkdownVideos::SERVICE_TESTS.each do |service, tests|
         tests.reject { |test| test.keys.include?(:class_name) }.each do |test|
           test[:alt_text] ||= "a title"

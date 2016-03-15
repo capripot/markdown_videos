@@ -93,7 +93,7 @@ module MarkdownVideos::Services
   class MyAwsomeService < ServiceBase
 
     def self.regexp
-      /(https?:\/\/myaweso.me\/video\/([\w\-]{4,16})\??([\w\-\=]+)?)/
+      /^(https?:\/\/myaweso.me\/video\/([\w\-]{4,16})\??([\w\-\=]+)?)$/
     end
 
     def width
@@ -129,7 +129,7 @@ module MarkdownVideos::Services
     # Matching https://twitter.com/DevpostHacks/status/628627980445712384
     #
     def self.regexp
-      /(https?:\/\/twitter\.com\/([\w]+)\/status\/([0-9]+))/
+      /^(https?:\/\/twitter\.com\/([\w]+)\/status\/([0-9]+))$/
     end
 
     def url
