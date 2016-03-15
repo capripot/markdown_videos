@@ -45,12 +45,12 @@ You should use it before any [other Markdown renderer](https://github.com/vmg/re
 ### Options
 
 You can add optional parameters to `render`:
-- `:wrapper` wraps the HTML embed markup with the given string, `%s` must be present
-- `:classname` add a class attribute to HTML embed markup
+- `:wrapper` wraps the HTML embed element with the given string, `%s` must be present
+- `:class_name` add a class attribute to HTML embed element
 
 Example:
 ```ruby
-MarkdownVideos.render(markdown_text, wrapper: '<p class="flex-video">%s</p>', classname: "embed-video")
+MarkdownVideos.render(markdown_text, wrapper: '<p class="flex-video">%s</p>', class_name: "embed-video")
 ```
 
 
@@ -63,7 +63,7 @@ MarkdownVideos.configure do |config|
 
   # For bootstrap css framework support by default
   config.wrapper = '<p class="embed-responsive embed-responsive-16by9">%s</p>'
-  config.classname = 'embed-responsive-item'
+  config.class_name = 'embed-responsive-item'
 
 end
 ```
@@ -80,6 +80,72 @@ end
   - https://player.vimeo.com/video/152640853
 
 Can be `http` or `https` protocol
+
+## Add your own service
+
+You can add your own video service:
+
+`my_awesome_service.rb`:
+
+```ruby
+module MarkdownVideos::Services
+
+  class MyAwsomeService < ServiceBase
+
+    def self.regexp
+      /(https?:\/\/myaweso.me\/video\/([\w\-]{4,16})\??([\w\-\=]+)?)/
+    end
+
+    def width
+      560
+    end
+
+    def height
+      315
+    end
+
+    def url
+      "https://player.myaweso.me/video/#{resource_id}"
+    end
+
+    def url_parameters
+      [:start]
+    end
+
+  end
+
+end
+```
+
+Or even any random service that can be embeded:
+
+`twitter_service.rb`:
+
+```ruby
+module MarkdownVideos::Services
+
+  class TwitterService < ServiceBase
+
+    # Matching https://twitter.com/DevpostHacks/status/628627980445712384
+    #
+    def self.regexp
+      /(https?:\/\/twitter\.com\/([\w]+)\/status\/([0-9]+))/
+    end
+
+    def url
+      "https://twitter.com/#{markdown_url_data[2]}/status/#{markdown_url_data[3]}"
+    end
+
+    def to_html
+      "<blockquote class=\"twitter-tweet\" data-lang=\"en\"><a href=\"#{url}\"></a></blockquote><script async src=\"http://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
+    end
+
+  end
+
+end
+```
+
+Look at the `lib/markdown_videos/services/service_base.rb` for more details.
 
 ## TODO
 

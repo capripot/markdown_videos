@@ -1,5 +1,5 @@
-require "markdown_videos/renderer"
 require "markdown_videos/services"
+require "markdown_videos/renderer"
 require "markdown_videos/configuration"
 
 module MarkdownVideos
