@@ -24,7 +24,7 @@ module MarkdownVideos
 
       def initialize(alt_text, markdown_url, options)
         @alt_text = alt_text
-        @markdown_url = markdown_url
+        @markdown_url = markdown_url.strip
         options.each { |option, value| self.send("#{option}=", value) }
       end
 

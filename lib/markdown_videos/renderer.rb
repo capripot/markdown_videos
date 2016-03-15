@@ -20,7 +20,7 @@ module MarkdownVideos
         match_data = Regexp.last_match
         markdown = {
           alt_text: match_data[1],
-          url: match_data[2]
+          url: match_data[2].strip
         }
 
         service_class = find_service_for(markdown[:url])
