@@ -15,7 +15,7 @@ module MarkdownVideos::Services
     end
 
     def url
-      "https://www.youtube.com/embed/#{id}"
+      "https://www.youtube.com/embed/#{resource_id}"
     end
 
     def url_parameters

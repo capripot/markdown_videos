@@ -7,7 +7,7 @@ module MarkdownVideos::Services
     end
 
     def url
-      "https://player.vimeo.com/video/#{id}"
+      "https://player.vimeo.com/video/#{resource_id}"
     end
 
   end

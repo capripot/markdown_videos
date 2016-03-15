@@ -105,7 +105,7 @@ module MarkdownVideos::Services
     end
 
     def url
-      "https://player.myaweso.me/video/#{id}"
+      "https://player.myaweso.me/video/#{resource_id}"
     end
 
     def url_parameters

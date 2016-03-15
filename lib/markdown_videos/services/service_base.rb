@@ -3,7 +3,7 @@ module MarkdownVideos
 
     class ServiceBase
 
-      attr_accessor :id,
+      attr_accessor :resource_id,
                     :alt_text,
                     :markdown_url,
                     :width,
@@ -51,8 +51,8 @@ module MarkdownVideos
         CGI::escapeHTML(@alt_text)
       end
 
-      # @return [String] video id, usually consumed by `url` method in service class
-      def id
+      # @return [String] resource ID of the service resource rendered base on given URL
+      def resource_id
         @id ||= self.class.regexp.match(markdown_url)[2]
       end
 
