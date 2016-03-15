@@ -45,8 +45,8 @@ You should use it before any [other Markdown renderer](https://github.com/vmg/re
 ### Options
 
 You can add optional parameters to `render`:
-- `:wrapper` wraps the HTML embed markup with the given string, `%s` must be present
-- `:class_name` add a class attribute to HTML embed markup
+- `:wrapper` wraps the HTML embed element with the given string, `%s` must be present
+- `:class_name` add a class attribute to HTML embed element
 
 Example:
 ```ruby

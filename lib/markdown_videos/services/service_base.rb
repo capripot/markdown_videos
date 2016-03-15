@@ -26,7 +26,7 @@ module MarkdownVideos
         options.each { |option, value| self.send("#{option}=", value) }
       end
 
-      # URL to be consumed by markup
+      # URL to be consumed by #to_html
       def url
         raise "#{self.class} instance should respond to `url`"
       end
@@ -57,7 +57,7 @@ module MarkdownVideos
       end
 
 
-      # @return [String] service URL to be consumed by markup
+      # @return [String] service URL to be consumed by #to_html
       def service_url
         given_url = Addressable::URI.parse(markdown_url)
         given_url_parameters = given_url.query_values || {}
@@ -68,10 +68,10 @@ module MarkdownVideos
         service_url.to_s
       end
 
-      # Default markup rendering
+      # Default HTML rendering
       #
       # @retun [String] markup to render
-      def markup
+      def to_html
         "<iframe #{iframe_attributes.map { |k, v| render_param(k, v) }.compact.join(" ")}></iframe>"
       end
 
@@ -94,9 +94,9 @@ module MarkdownVideos
 
       def render
         if wrapper
-          sprintf(wrapper, markup)
+          sprintf(wrapper, to_html)
         else
-          markup
+          to_html
         end
       end
 
