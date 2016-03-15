@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    markdown_videos (1.0.0)
+    markdown_videos (1.0.1)
       addressable (~> 2.4)
 
 GEM
