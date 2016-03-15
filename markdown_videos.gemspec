@@ -3,10 +3,10 @@ require "markdown_videos/version"
 
 Gem::Specification.new do |gem|
   gem.name          = "markdown_videos"
-  gem.description   = "Markdown syntax video parser"
+  gem.description   = "Markdown syntax parser to render embed services"
   gem.version       = MarkdownVideos::VERSION
   gem.platform      = Gem::Platform::RUBY
-  gem.summary       = "A gem that provides ability to parse any string containing image markdown syntax into appropriate video HTML embed based on URL."
+  gem.summary       = "A gem that provides ability to parse any string containing image markdown syntax into appropriate HTML embed service based on URL."
   gem.email         = "capripot@gmail.com"
   gem.homepage      = "https://github.com/capripot/markdown_videos"
   gem.authors       = ["Capripot"]
