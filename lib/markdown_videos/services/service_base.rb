@@ -6,6 +6,7 @@ module MarkdownVideos
       attr_accessor :resource_id,
                     :alt_text,
                     :markdown_url,
+                    :markdown_url_data,
                     :width,
                     :height,
                     :wrapper,
@@ -15,8 +16,9 @@ module MarkdownVideos
         markdown_url =~ regexp
       end
 
+      # URL matcher
       def self.regexp
-        raise "#{self.class} class should respond to `regexp`"
+        raise NotImplementedError "#{self.class} should implement #regexp method"
       end
 
 
@@ -28,7 +30,7 @@ module MarkdownVideos
 
       # URL to be consumed by #to_html
       def url
-        raise "#{self.class} instance should respond to `url`"
+        raise NotImplementedError "#{self.class} should implement #url method"
       end
 
       # List of authorized url parameters
@@ -53,9 +55,13 @@ module MarkdownVideos
 
       # @return [String] resource ID of the service resource rendered base on given URL
       def resource_id
-        @id ||= self.class.regexp.match(markdown_url)[2]
+        @resource_id ||= markdown_url_data[2]
       end
 
+      # @return [MatchData] match data from matching URL to service regexp
+      def markdown_url_data
+        @markdown_url_data ||= self.class.regexp.match(markdown_url)
+      end
 
       # @return [String] service URL to be consumed by #to_html
       def service_url
