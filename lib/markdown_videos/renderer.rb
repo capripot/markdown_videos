@@ -4,8 +4,10 @@ module MarkdownVideos
 
   class Renderer
 
-    def initialize(string, options = {})
-      @string = string
+    attr_reader :markdown_text
+
+    def initialize(markdown_text, options = {})
+      @markdown_text = markdown_text
       @options = {
         wrapper: MarkdownVideos.defaults.wrapper,
         class_name: MarkdownVideos.defaults.class_name
@@ -13,7 +15,7 @@ module MarkdownVideos
     end
 
     def render
-      @string.gsub(/!\[([^\]]*)\]\(([^)]+)\)/) do
+      @markdown_text.gsub(/!\[([^\]]*)\]\(([^)]+)\)/) do
         rendered = nil
         match_data = Regexp.last_match
         markdown = {
