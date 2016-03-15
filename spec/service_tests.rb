@@ -9,7 +9,7 @@ module MarkdownVideos
   #  url: URL used in markdown syntax
   #  alt_text: Alternative text, "a title" by default
   #  html: Expected result in HTML
-  #  classname: only one entry required, to test HTML class attribute rendering
+  #  class_name: only one entry required, to test HTML class attribute rendering
   #
 
   SERVICE_TESTS = {
@@ -37,9 +37,9 @@ module MarkdownVideos
         url: "https://www.youtube.com/embed/-sdTq0ZxZZg?start=63",
         html: '<iframe title="a title" src="https://www.youtube.com/embed/-sdTq0ZxZZg?start=63" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
       },
-      # one classname test per service is required
+      # one class_name test per service is required
       {
-        classname: "embed-responsive-item",
+        class_name: "embed-responsive-item",
         url: "https://www.youtube.com/embed/-sdTq0ZxZZg",
         html: '<iframe title="a title" src="https://www.youtube.com/embed/-sdTq0ZxZZg" width="560" height="315" class="embed-responsive-item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
       }
@@ -56,7 +56,7 @@ module MarkdownVideos
       },
       {
         url: "https://vimeo.com/152640853",
-        classname: "embed-responsive-item",
+        class_name: "embed-responsive-item",
         html: '<iframe title="a title" src="https://player.vimeo.com/video/152640853" width="500" height="281" class="embed-responsive-item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
       }
     ]

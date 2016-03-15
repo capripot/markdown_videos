@@ -3,7 +3,7 @@ module MarkdownVideos
   class Configuration
 
     attr_accessor :wrapper,
-                  :classname
+                  :class_name
 
     # if defined, needs to contain `%s` where HTML markup should be included
     # e.g.: WRAPPER = '<p class="embed-responsive embed-responsive-16by9">%s</p>'.freeze
@@ -16,9 +16,9 @@ module MarkdownVideos
       @wrapper = wrapper
     end
 
-    # extra classname(s) added to embed HTML markup
-    def classname
-      @classname || nil
+    # extra class_name(s) added to embed HTML markup
+    def class_name
+      @class_name || nil
     end
 
   end

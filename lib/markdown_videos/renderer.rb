@@ -8,7 +8,7 @@ module MarkdownVideos
       @string = string
       @options = {
         wrapper: MarkdownVideos.defaults.wrapper,
-        classname: MarkdownVideos.defaults.classname
+        class_name: MarkdownVideos.defaults.class_name
       }.merge(options || {})
     end
 

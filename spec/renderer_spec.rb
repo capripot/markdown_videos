@@ -18,7 +18,7 @@ describe MarkdownVideos do
       end
 
       MarkdownVideos::SERVICE_TESTS.each do |service, tests|
-        tests.reject { |test| test.keys.include?(:classname) }.each do |test|
+        tests.reject { |test| test.keys.include?(:class_name) }.each do |test|
           test[:alt_text] ||= "a title"
 
           it "should render #{service} HTML" do
@@ -38,7 +38,7 @@ describe MarkdownVideos do
         expected_html = []
 
         MarkdownVideos::SERVICE_TESTS.each do |service, tests|
-          tests.reject! { |test| test.keys.include?(:classname) }
+          tests.reject! { |test| test.keys.include?(:class_name) }
           markdown_text << tests.map { |test| markdown_string(test[:alt_text], test[:url]) }.join("\n")
           expected_html << tests.map { |test| test[:html] }.join("\n")
         end
@@ -64,22 +64,22 @@ describe MarkdownVideos do
 
     describe "with class option" do
 
-      classname_tests = {}
+      class_name_tests = {}
 
       MarkdownVideos::SERVICE_TESTS.each do |service, tests|
-        classname_tests[service] = tests.select { |test| test.keys.include?(:classname) }
+        class_name_tests[service] = tests.select { |test| test.keys.include?(:class_name) }
       end
 
-      it "At least one test of classname per service is required" do
-        expect(classname_tests.reject { |service, v| v.empty? }.keys).to eq MarkdownVideos::SERVICE_TESTS.keys
+      it "At least one test of class_name per service is required" do
+        expect(class_name_tests.reject { |service, v| v.empty? }.keys).to eq MarkdownVideos::SERVICE_TESTS.keys
       end
 
-      classname_tests.each do |service, tests|
+      class_name_tests.each do |service, tests|
         tests.each do |test|
           test[:alt_text] ||= "a title"
 
-          it "should render #{service} HTML with classname #{test[:classname]}" do
-            rendered_text = MarkdownVideos.render(markdown_string(test[:alt_text], test[:url]), classname: test[:classname])
+          it "should render #{service} HTML with class_name #{test[:class_name]}" do
+            rendered_text = MarkdownVideos.render(markdown_string(test[:alt_text], test[:url]), class_name: test[:class_name])
 
             expect(rendered_text).to include test[:html]
           end

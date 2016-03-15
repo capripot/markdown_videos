@@ -9,7 +9,7 @@ module MarkdownVideos
                     :width,
                     :height,
                     :wrapper,
-                    :classname
+                    :class_name
 
       def self.support(markdown_url)
         markdown_url =~ regexp
@@ -84,7 +84,7 @@ module MarkdownVideos
           src: service_url,
           width: width,
           height: height,
-          class: classname,
+          class: class_name,
           frameborder: "0",
           webkitallowfullscreen: true,
           mozallowfullscreen: true,
