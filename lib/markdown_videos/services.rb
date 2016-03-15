@@ -3,7 +3,7 @@ module MarkdownVideos
   # This file `require` the ServiceBase class
   # and all `_service` files present in services folder
 
-  require File.expand_path("../services/service_base", __FILE__)
+  require_relative "services/service_base"
 
   Dir[File.expand_path("../services/*_service.rb", __FILE__)].each do |path|
     require path
