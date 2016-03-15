@@ -83,7 +83,7 @@ Can be `http` or `https` protocol
 
 ## Add your own service
 
-You can make available your own services:
+You can add your own video service:
 
 `my_awesome_service.rb`:
 
@@ -110,6 +110,34 @@ module MarkdownVideos::Services
 
     def url_parameters
       [:start]
+    end
+
+  end
+
+end
+```
+
+Or even any random service that can be embeded:
+
+`twitter_service.rb`:
+
+```ruby
+module MarkdownVideos::Services
+
+  class TwitterService < ServiceBase
+
+    # Matching https://twitter.com/DevpostHacks/status/628627980445712384
+    #
+    def self.regexp
+      /(https?:\/\/twitter\.com\/([\w]+)\/status\/([0-9]+))/
+    end
+
+    def url
+      "https://twitter.com/#{markdown_url_data[2]}/status/#{markdown_url_data[3]}"
+    end
+
+    def to_html
+      "<blockquote class=\"twitter-tweet\" data-lang=\"en\"><a href=\"#{url}\"></a></blockquote><script async src=\"http://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
     end
 
   end
